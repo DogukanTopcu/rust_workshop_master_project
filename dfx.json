@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "rustWorkshopMasterProject_backend": {
+      "candid": "src/rustWorkshopMasterProject_backend/rustWorkshopMasterProject_backend.did",
+      "package": "rustWorkshopMasterProject_backend",
+      "type": "rust"
+    },
+    "rustWorkshopMasterProject_frontend": {
+      "dependencies": [
+        "rustWorkshopMasterProject_backend"
+      ],
+      "source": [
+        "src/rustWorkshopMasterProject_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "rustWorkshopMasterProject_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
