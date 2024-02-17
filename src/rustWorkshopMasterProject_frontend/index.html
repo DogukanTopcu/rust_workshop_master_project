@@ -5,12 +5,37 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IC Hello Starter</title>
+  <title>Rise In - IC Rust Workshop Project | Doğukan Topçu</title>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.js"></script>
+  <div id="root">
+
+    <h1>Dfinity Rust Backend - Frontend</h1>
+    <button onclick="calculateFactorial()">Sayının Faktöriyelini Hesapla</button>
+    <button onclick="calculateSum()">Dizi Sayıların Toplamını Hesapla</button>
+    <button onclick="sortNumbers()">Sayıları Sırala</button>
+
+  </div>
+  <script>
+    async function calculateFactorial() {
+            const number = prompt("Lütfen bir sayı girin:");
+            const result = await window.backend.calculate_factorial(Number(number));
+            alert(`${number} sayısının faktöriyeli: ${result}`);
+        }
+
+        async function calculateSum() {
+            const numbers = prompt("Lütfen bir dizi sayı girin (boşluklarla ayırın):");
+            const result = await window.backend.calculate_sum(numbers.split(' ').map(Number));
+            alert(`Girilen sayıların toplamı: ${result}`);
+        }
+
+        async function sortNumbers() {
+            const numbers = prompt("Lütfen bir dizi sayı girin (virgülle ayırın):");
+            const result = await window.backend.sort_numbers(numbers.split(',').map(Number));
+            alert(`Girilen sayıların küçükten büyüğe sıralı hali: ${result}`);
+        }
+  </script>
 </body>
 
 </html>
